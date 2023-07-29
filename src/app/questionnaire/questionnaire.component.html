@@ -1,0 +1,57 @@
+<form [formGroup]="movieForm" (ngSubmit)="postRecord()">
+  <!-- <div>
+    <label for="genre">What is your favourite movie genre?</label>
+    <select id="genre" formControlName="genre">
+      <option
+        *ngFor="let genre of genres; index as i"
+        [value]="genre"
+        [disabled]="i === 0"
+      >
+        {{ genre }}
+      </option>
+    </select>
+  </div> -->
+
+  <app-dropdown
+    labelText="What is your favourite movie genre?"
+    [options]="genres"
+    id="genre"
+    [group]="movieForm"
+  ></app-dropdown>
+
+  <app-dropdown
+    labelText="How often do you watch movies in general?"
+    [options]="frequency"
+    id="frequency"
+    [group]="movieForm"
+  ></app-dropdown>
+
+  <app-dropdown
+    labelText="Which part of the year do you find yourself watching more movies?"
+    [options]="seasons"
+    id="season"
+    [group]="movieForm"
+  ></app-dropdown>
+
+  <!-- <div>
+    <label for="place">Where do you prefer watching movies more?</label>
+    <div *ngFor="let place of places">
+      <input type="radio" [value]="place" formControlName="place" />{{ place }}
+    </div>
+  </div> -->
+
+  <app-radio
+    labelText="Where do you prefer watching movies more?"
+    [options]="places"
+    id="place"
+    [group]="movieForm"
+  ></app-radio>
+
+  <div>
+    <label for="favouriteMovie">Care to share your favourite movie?</label>
+    <input id="favouriteMovie" formControlName="favouriteMovie" />
+  </div>
+
+  <button type="button" (click)="getRecords()">Show records</button>
+  <button type="submit" [disabled]="!movieForm.valid">Submit</button>
+</form>

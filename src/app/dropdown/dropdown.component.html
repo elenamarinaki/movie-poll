@@ -1,0 +1,12 @@
+<div [formGroup]="group">
+  <label [for]="id">{{ labelText }}</label>
+  <select [id]="id" [formControlName]="id">
+    <option
+      *ngFor="let option of options; index as i"
+      [value]="option"
+      [disabled]="i === 0"
+    >
+      {{ option }}
+    </option>
+  </select>
+</div>
