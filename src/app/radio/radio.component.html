@@ -1,4 +1,4 @@
-<div [formGroup]="group">
+<div [formGroup]="group" class="d-flex flex-column align-items-start gap-2">
   <label [for]="id">{{ labelText }}</label>
   <div *ngFor="let option of options">
     <input [name]="id" type="radio" [value]="option" [formControlName]="id" />{{
