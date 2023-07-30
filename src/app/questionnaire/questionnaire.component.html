@@ -52,6 +52,8 @@
     <input id="favouriteMovie" formControlName="favouriteMovie" />
   </div>
 
-  <button type="button" (click)="getRecords()">Show records</button>
-  <button type="submit" [disabled]="!movieForm.valid">Submit</button>
+  <div class="d-xl-flex flex-row p-2 justify-content-between">
+    <button type="button" class="btn btn-primary" (click)="getRecords()">Show records</button>
+    <button type="submit" class="btn btn-secondary" [disabled]="!movieForm.valid">Submit</button>
+  </div>
 </form>
