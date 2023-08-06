@@ -25,6 +25,7 @@ export class QuestionnaireComponent implements OnInit {
   seasons: string[] = ['Please select', 'spring', 'summer', 'fall', 'winter'];
   places: string[] = ['Cinema', 'Home'];
   frequency: string[] = ['Please select', 'weekly', 'monthly', 'yearly'];
+  allRecords: Record[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -49,7 +50,10 @@ export class QuestionnaireComponent implements OnInit {
   getRecords(): void {
     this.recordsService
       .getRecords()
-      .subscribe((data) => console.log('Records are: ', data));
+      .subscribe((data) => {
+        console.log('Records are: ', data)
+        this.allRecords = data;
+      });
   }
 
   postRecord(): void {
@@ -73,5 +77,9 @@ export class QuestionnaireComponent implements OnInit {
   onSubmitComplete(): void {
     this.movieForm.reset();
     this.router.navigate(['/records']);
+  }
+
+  showRecords(): void {
+    this.router.navigate(['/records']).then(data => console.log('navigation promise --- ', data));
   }
 }

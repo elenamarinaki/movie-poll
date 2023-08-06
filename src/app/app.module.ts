@@ -10,6 +10,8 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { RadioComponent } from './radio/radio.component';
 import { RecordsComponent } from './records/records.component';
 
+import { HighchartsChartModule } from "highcharts-angular";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { RecordsComponent } from './records/records.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent],
