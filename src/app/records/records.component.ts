@@ -14,7 +14,7 @@ export class RecordsComponent implements OnInit {
   allRecords: Record[] = [];
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions:Highcharts.Options;
-  palette = ['#b3de95', '#9b95de', '#de95d7', '#9bdfce', '#df9bce', '#dfac9b']
+  palette = ['#b3de95', '#9b95de', '#de95b2', '#9bdfce', '#df9bce', '#dfac9b']
 
 
   constructor(private recordsService: RecordsService) {}
