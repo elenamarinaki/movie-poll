@@ -2,3 +2,7 @@
 body {
   font-family: 'Edu SA Beginner', cursive;
 }
+
+.highcharts-container {
+  margin: auto;
+}

@@ -14,6 +14,7 @@ export class RecordsComponent implements OnInit {
   allRecords: Record[] = [];
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions:Highcharts.Options;
+  palette = ['#b3de95', '#9b95de', '#de95d7', '#9bdfce', '#df9bce', '#dfac9b']
 
 
   constructor(private recordsService: RecordsService) {}
@@ -21,13 +22,13 @@ export class RecordsComponent implements OnInit {
   ngOnInit() {
     this.recordsService
       .getRecords()
-      .subscribe((data) => {
+      .subscribe((data: Record[]) => {
         console.log('Records are: ', data)
         this.allRecords = data;
 
         this.chartOptions = {
           chart: {
-            type: 'column'
+            type: 'column',
           },
           title: {
             text: 'Genre popularity',
@@ -40,19 +41,32 @@ export class RecordsComponent implements OnInit {
               description: 'Countries'
             }
           },
+          yAxis: {
+            className: 'highcharts-color-0',
+            title: {
+              text: 'Number of people'
+            }
+          },
           series: [{
             name: 'Genre',
-            data: this.getGenreNumberPairs().map(p => Object.values(p)[0]),
-            type: 'column'
-          }],
+            data: this.getGenreNumberPairs().map((p, idx) => ({y: Object.values(p)[0] as number, color: this.palette[idx % 6]})),
+            type: 'column',
+            color: '#7ddcc6'
+          }]
         };
       });
 
-
+    // Highcharts.setOptions({
+    //   chart: {
+    //     style: {
+    //       fontFamily: 'monospace'
+    //     }
+    //   }
+    // });
   }
 
-  getGenreNumber(genre: string) {
-    return this.allRecords.filter(r => r.genre === genre).length
+  getGenreNumber(genre: string): number {
+    return this.allRecords.filter((r: Record) => r.genre === genre).length
   }
 
   getGenreNumberPairs() {
