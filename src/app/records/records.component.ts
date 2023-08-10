@@ -13,8 +13,10 @@ export class RecordsComponent implements OnInit {
 
   allRecords: Record[] = [];
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions:Highcharts.Options;
-  palette = ['#b3de95', '#9b95de', '#de95b2', '#9bdfce', '#df9bce', '#dfac9b']
+  genrePopularityChartOptions:Highcharts.Options;
+  seasonPopularityChartOptions:Highcharts.Options;
+  genrePalette = ['#b3de95', '#9b95de', '#de95b2', '#9bdfce', '#df9bce', '#dfac9b']
+  seasonPalette = ['#9BDFCE', '#B3DE95', '#D15340', '#C1D3FD']
 
 
   constructor(private recordsService: RecordsService) {}
@@ -26,7 +28,7 @@ export class RecordsComponent implements OnInit {
         console.log('Records are: ', data)
         this.allRecords = data;
 
-        this.chartOptions = {
+        this.genrePopularityChartOptions = {
           chart: {
             type: 'column',
           },
@@ -44,14 +46,43 @@ export class RecordsComponent implements OnInit {
           yAxis: {
             className: 'highcharts-color-0',
             title: {
-              text: 'Number of people'
+              text: 'Number of votes'
             }
           },
           series: [{
             name: 'Genre',
-            data: this.getGenreNumberPairs().map((p, idx) => ({y: Object.values(p)[0] as number, color: this.palette[idx % 6]})),
+            data: this.getGenreNumberPairs().map((p, idx) => ({y: Object.values(p)[0] as number, color: this.genrePalette[idx % 6]})),
             type: 'column',
             color: '#7ddcc6'
+          }]
+        };
+
+        this.seasonPopularityChartOptions = {
+          chart: {
+            type: 'column',
+          },
+          title: {
+            text: 'Season popularity',
+            align: 'left'
+          },
+          xAxis: {
+            categories: ['spring', 'summer', 'fall', 'winter'],
+            crosshair: true,
+            accessibility: {
+              description: 'Seasons'
+            }
+          },
+          yAxis: {
+            className: 'highcharts-color-0',
+            title: {
+              text: 'Number of movies'
+            }
+          },
+          series: [{
+            name: 'Season',
+            data: this.getMoviesPerSeason().map((m, idx) => ({y: m as number, color: this.seasonPalette[idx]})),
+            type: 'column',
+            color: '#B3DE95'
           }]
         };
       });
@@ -63,6 +94,8 @@ export class RecordsComponent implements OnInit {
     //     }
     //   }
     // });
+
+
   }
 
   getGenreNumber(genre: string): number {
@@ -78,6 +111,15 @@ export class RecordsComponent implements OnInit {
       }
       return acc;
     }, []);
+  }
+
+  getMoviesPerSeason(): number[] {
+    const springLength = this.allRecords.filter((r: Record) => r.season === 'spring').length;
+    const summerLength = this.allRecords.filter((r: Record) => r.season === 'summer').length;
+    const fallLength = this.allRecords.filter((r: Record) => r.season === 'fall').length;
+    const winterLength = this.allRecords.filter((r: Record) => r.season === 'winter').length;
+
+    return [springLength, summerLength, fallLength, winterLength]
   }
 
 }

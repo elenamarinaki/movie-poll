@@ -21,7 +21,10 @@ export class QuestionnaireComponent implements OnInit {
     'horror',
     'romance',
     'sci-fi',
-    'animation'
+    'animation',
+    'mystery',
+    'crime',
+    'thriller'
   ];
   seasons: string[] = ['Please select', 'spring', 'summer', 'fall', 'winter'];
   places: string[] = ['Cinema', 'Home'];
