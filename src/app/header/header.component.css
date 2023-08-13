@@ -1,3 +1,7 @@
+:root {
+  --neitral-light: #495057;
+}
+
 .header {
   width: 100%;
   padding: 1rem 2rem;
@@ -5,7 +9,8 @@
   top: 0;
   left: 0;
 
-  color: #2B2B2E;
+  background: linear-gradient(to bottom, white, transparent);
+  color: #495057;
 
   transition: transform 0.3s ease-in-out;
 
@@ -19,9 +24,9 @@ h1 {
 .show-records {
   font-size: 20px;
   padding: 0.5rem 1rem;
-  border: 2px solid #2B2B2E;
-  border-bottom: 3px solid #2B2B2E;
-  border-radius: 12px;
+  border: 2px solid #495057;
+  border-bottom: 3px solid #495057;
+  border-radius: 10px;
 
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
 }

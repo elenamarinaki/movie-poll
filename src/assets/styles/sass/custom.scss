@@ -6,11 +6,24 @@ $success: #b3de95;
 $info: #c1d3fd;
 $neutral: #0c0b0d;
 
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  warning: $warning,
+  danger: $danger,
+  success: $success,
+  info: $info,
+  neutral: $neutral
+);
+
+$neutral-light: #495057;
+
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
 
 //$theme-colors: (
 // primary: #ea60a2,
 // secondary: #53bfc8
 //);
+
 
 
