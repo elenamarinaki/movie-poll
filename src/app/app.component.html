@@ -1,7 +1,7 @@
 <div class="parallax-container">
   <div class="gradient-layer"></div>
   <div *ngFor="let svg of svgs; let i = index" [ngStyle]="{'top': svg.top, 'left': svg.left, 'transform': svgTransforms[i]}" class="svg-item">
-    <app-svg-loader [svgName]="i % 2 === 0 ? 'film-stripe' : 'film-tape' "></app-svg-loader>
+    <app-svg-loader [svgName]="i % 3 === 0 ? 'film-stripe' : i % 3 === 1 ? 'film-tape' : 'popcorn' "></app-svg-loader>
   </div>
 
   <div class="content-layer">

@@ -1,10 +1,10 @@
-$primary: #f0e4f7;
-$secondary: #9bdfce;
-$warning: #feeed8;
-$danger: #d15340;
-$success: #b3de95;
-$info: #c1d3fd;
-$neutral: #0c0b0d;
+$primary: #EE9B00;
+$secondary: #94D2BD;
+$warning: #CA6702;
+$danger: #9B2226;
+$success: #0A9396;
+$info: #005F73;
+$neutral: #E9D8A6;
 
 $theme-colors: (
   primary: $primary,
@@ -13,10 +13,12 @@ $theme-colors: (
   danger: $danger,
   success: $success,
   info: $info,
-  neutral: $neutral
+  neutral: $neutral,
+  nectarine: #BB3E03,
+  hotred: #AE2012,
+  royalblack: #001219,
+  textblack: #495057
 );
-
-$neutral-light: #495057;
 
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
 

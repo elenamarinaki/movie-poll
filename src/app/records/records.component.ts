@@ -15,8 +15,8 @@ export class RecordsComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
   genrePopularityChartOptions:Highcharts.Options;
   seasonPopularityChartOptions:Highcharts.Options;
-  genrePalette = ['#b3de95', '#9b95de', '#de95b2', '#9bdfce', '#df9bce', '#dfac9b']
-  seasonPalette = ['#9BDFCE', '#B3DE95', '#D15340', '#C1D3FD']
+  genrePalette = ['#006275', '#019B9D', '#F09C00', '#CC6600', '#BC3C00', '#9B2226']
+  seasonPalette = ['#94D2BD', '#EE9B00', '#9B2226', '#005F73']
 
 
   constructor(private recordsService: RecordsService) {}

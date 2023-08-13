@@ -1,3 +1,19 @@
+.charts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+
+  color: #495057;
+  background-color: white;
+  border-bottom: 2px solid #495057;
+  border-radius: 10px;
+}
+
 .highcharts-container {
-  width: 800px;
+  width: 400px;
+  @media (min-width: 1200px) {
+    width: 800px;
+  }
 }

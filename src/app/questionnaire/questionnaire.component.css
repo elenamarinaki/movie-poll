@@ -10,6 +10,7 @@ form {
   gap: 2rem;
 
   color: #495057;
+  border: 2px solid #495057;
 
   @media (min-width: 1200px) {
     font-size: 18px;
@@ -17,5 +18,7 @@ form {
 }
 
 .lorem {
-  padding: 5rem;
+  background-color: white;
+  margin: 10rem;
+  padding: 1rem;
 }
