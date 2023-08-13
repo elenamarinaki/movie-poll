@@ -1,4 +1,19 @@
-<app-header></app-header>
-<div class="main-content">
-  <router-outlet></router-outlet>
+<div class="parallax-container">
+  <div class="gradient-layer"></div>
+  <div *ngFor="let svg of svgs; let i = index" [ngStyle]="{'top': svg.top, 'left': svg.left, 'transform': svgTransforms[i]}" class="svg-item">
+    <app-svg-loader [svgName]="i % 2 === 0 ? 'film-stripe' : 'film-tape' "></app-svg-loader>
+  </div>
+
+  <div class="content-layer">
+    <app-header></app-header>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
