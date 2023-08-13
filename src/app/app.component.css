@@ -1,3 +1,6 @@
-body {
-  font-family: 'Edu SA Beginner', cursive;
+.main-content {
+  margin-top: 10rem;
+  font-family: 'Inconsolata', monospace;
 }
+
+

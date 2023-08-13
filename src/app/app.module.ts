@@ -11,6 +11,7 @@ import { RadioComponent } from './radio/radio.component';
 import { RecordsComponent } from './records/records.component';
 
 import { HighchartsChartModule } from "highcharts-angular";
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HighchartsChartModule } from "highcharts-angular";
     DropdownComponent,
     RadioComponent,
     RecordsComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

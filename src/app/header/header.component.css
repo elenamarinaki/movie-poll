@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  color: #2B2B2E;
+
+  transition: transform 0.3s ease-in-out;
+
+  font-family: 'Inconsolata', monospace;
+}
+
+h1 {
+  cursor: pointer;
+}
+
+.show-records {
+  font-size: 20px;
+  padding: 0.5rem 1rem;
+  border: 2px solid #2B2B2E;
+  border-bottom: 3px solid #2B2B2E;
+  border-radius: 12px;
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}

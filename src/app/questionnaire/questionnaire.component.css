@@ -1,7 +1,6 @@
 form {
   /*background-color: aquamarine;*/
-  margin-right: auto;
-  margin-left: auto;
+  margin: 0 auto;
   padding: 2rem;
   max-width: 800px;
 
@@ -9,6 +8,8 @@ form {
   flex-direction: column;
   align-items: start;
   gap: 2rem;
+}
 
-  font-family: 'Nunito', sans-serif;
+.lorem {
+  padding: 5rem;
 }

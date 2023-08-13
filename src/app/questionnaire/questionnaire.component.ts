@@ -82,8 +82,4 @@ export class QuestionnaireComponent implements OnInit {
     this.movieForm.reset();
     this.router.navigate(['/records']);
   }
-
-  showRecords(): void {
-    this.router.navigate(['/records']).then(data => console.log('navigation promise --- ', data));
-  }
 }

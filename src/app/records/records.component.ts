@@ -87,13 +87,13 @@ export class RecordsComponent implements OnInit {
         };
       });
 
-    // Highcharts.setOptions({
-    //   chart: {
-    //     style: {
-    //       fontFamily: 'monospace'
-    //     }
-    //   }
-    // });
+    Highcharts.setOptions({
+      chart: {
+        style: {
+          fontFamily: 'monospace'
+        }
+      }
+    });
 
 
   }
