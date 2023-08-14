@@ -1,0 +1,21 @@
+.description {
+  /*width: 100%;*/
+  padding: 1rem 5rem;
+  /*background-color: #EE9B0011;*/
+}
+
+p {
+  font-size: 18px;
+}
+
+.left-border {
+  border-left: 7px solid #495057ef;
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.right-border {
+  border-right: 7px solid #495057ef;
+  border-bottom-left-radius: 12px;
+  border-top-left-radius: 12px;
+}
