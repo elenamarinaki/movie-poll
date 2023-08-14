@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
 
-  /*background: linear-gradient(to bottom, white, transparent);*/
+  background: linear-gradient(to bottom, white, transparent);
   color: #495057;
 
   transition: transform 0.3s ease-in-out;
@@ -22,6 +22,8 @@ h1 {
 }
 
 .show-records {
+  background-color: white;
+
   font-size: 20px;
   padding: 0.5rem 1rem;
   border: 2px solid #495057;
@@ -29,4 +31,11 @@ h1 {
   border-radius: 10px;
 
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.active-link {
+  color: white;
+  background-color: #495057f1;
+
+  box-shadow: 5px 5px 10px rgba(238, 155, 0, 0.5);
 }

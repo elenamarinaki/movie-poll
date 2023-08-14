@@ -17,3 +17,16 @@
     width: 800px;
   }
 }
+
+.loading-message {
+  font-size: 36px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 1200px) {
+    font-size: 52px;
+  }
+}

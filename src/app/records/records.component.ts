@@ -53,7 +53,7 @@ export class RecordsComponent implements OnInit {
             name: 'Genre',
             data: this.getGenreNumberPairs().map((p, idx) => ({y: Object.values(p)[0] as number, color: this.genrePalette[idx % 6]})),
             type: 'column',
-            color: '#7ddcc6'
+            color: '#0A9396'
           }]
         };
 
@@ -82,7 +82,7 @@ export class RecordsComponent implements OnInit {
             name: 'Season',
             data: this.getMoviesPerSeason().map((m, idx) => ({y: m as number, color: this.seasonPalette[idx]})),
             type: 'column',
-            color: '#B3DE95'
+            color: '#EE9B00'
           }]
         };
       });
