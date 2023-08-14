@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   }
 
   generateSvgPositions() {
-    const numberOfSvgs = 60;
+    const numberOfSvgs = 57;
 
     for (let i = 0; i < numberOfSvgs; i++) {
       const top = Math.random() * 100 + '%';

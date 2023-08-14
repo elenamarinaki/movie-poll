@@ -20,6 +20,15 @@ $theme-colors: (
   textblack: #495057
 );
 
+::selection {
+  background-color: #EE9B00ae;
+}
+
+::-moz-selection {
+  background-color: #EE9B00ae;
+}
+
+
 @import "../../../../node_modules/bootstrap/scss/bootstrap";
 
 //$theme-colors: (
