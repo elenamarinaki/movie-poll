@@ -4,11 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { RecordsComponent } from './records/records.component';
+import {HomepageComponent} from "./homepage/homepage.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: HomepageComponent,
   },
   {
     path: 'questionnaire',

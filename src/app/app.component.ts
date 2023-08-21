@@ -1,16 +1,22 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import {Component, OnInit, HostListener, OnDestroy} from '@angular/core';
+import { Router, NavigationEnd } from "@angular/router";
+import { filter } from 'rxjs/operators';
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'Movie Poll';
   svgs: {top: string, left: string}[] = [];
   svgTransforms: string[] = [];
 
-  constructor() { }
+  showHeader = false;
+  private routerSub: Subscription;
+
+  constructor(private router: Router) { }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -25,6 +31,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.generateSvgPositions();
+
+    this.routerSub = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event)  => {
+      const navigationEnd  = event as NavigationEnd;
+      this.showHeader = navigationEnd.url !== '/'
+    });
   }
 
   generateSvgPositions() {
@@ -35,6 +46,12 @@ export class AppComponent implements OnInit {
       const left = Math.random() * 100 + '%';
       this.svgs.push({top, left});
       this.svgTransforms.push('');
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.routerSub) {
+      this.routerSub.unsubscribe();
     }
   }
 }

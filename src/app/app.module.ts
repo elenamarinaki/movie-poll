@@ -14,6 +14,7 @@ import { HighchartsChartModule } from "highcharts-angular";
 import { HeaderComponent } from './header/header.component';
 import { SvgLoaderComponent } from './svg-loader/svg-loader.component';
 import { ChartDescriptionComponent } from './chart-description/chart-description.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ChartDescriptionComponent } from './chart-description/chart-description
     HeaderComponent,
     SvgLoaderComponent,
     ChartDescriptionComponent,
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,

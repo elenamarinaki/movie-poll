@@ -1,0 +1,68 @@
+.container {
+  width: 900px;
+}
+
+.title {
+  display: inline-block;
+  position: relative;
+  background: linear-gradient(45deg, #FFFFFF 25%, #AE2012ce 25%, #AE2012ce 50%, #FFFFFF 50%, #FFFFFF 75%, #AE2012ce 75%);
+  background-size: 40px 40px;
+  width: 100%;
+  padding: 1rem 5rem;
+
+  border: 3px solid #495057;
+  border-radius: 10px;
+
+  font-size: 72px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.nav-btn-container {
+  width: 100%;
+}
+
+.welcome-text {
+  padding: 1rem 0;
+  background-color: white;
+}
+
+.welcome-text p {
+  padding-top: 1rem;
+  padding-bottom: 0;
+  margin: 0;
+  font-size: 24px;
+}
+
+.why {
+  padding-top: 1rem;
+  padding-bottom: 0;
+  margin: 0;
+}
+
+.navigation-btn {
+  background-color: white;
+  width: 50%;
+
+  font-size: 42px;
+  padding: 1rem 5rem;
+  border: 2px solid #495057;
+  border-bottom: 3px solid #495057;
+  border-radius: 10px;
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navigation-btn:hover {
+  background-color: #495057f1;
+  color: white;
+
+  box-shadow: 5px 5px 10px rgba(238, 155, 0, 0.5);
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #EE9B00, #BB3E03, #AE2012);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

@@ -7,10 +7,11 @@
 <!--    </li>-->
 <!--  </ul>-->
 <!--</div>-->
-<div class="charts">
+<p *ngIf="allRecords.length === 0" class="loading-message">Loading data ... 🍿</p>
+
+<div *ngIf="allRecords.length > 0" class="charts">
   <app-chart-description borderPosition="left" backgroundColour="#0A939611" descriptionText="The next chart shows the popularity of different movie genres, based on the forms collected on this page."></app-chart-description>
 
-  <p *ngIf="allRecords.length === 0" class="loading-message">Loading data ... 🍿</p>
   <highcharts-chart
     [Highcharts]="Highcharts"
     [options]="genrePopularityChartOptions"></highcharts-chart>
