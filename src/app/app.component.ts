@@ -2,6 +2,7 @@ import {Component, OnInit, HostListener, OnDestroy} from '@angular/core';
 import { Router, NavigationEnd } from "@angular/router";
 import { filter } from 'rxjs/operators';
 import {Subscription} from "rxjs";
+import {WindowService} from "./window.service";
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,10 @@ export class AppComponent implements OnInit, OnDestroy {
   showHeader = false;
   private routerSub: Subscription;
 
-  constructor(private router: Router) { }
+  viewportWidth: number;
+  viewportHeight: number;
+
+  constructor(private router: Router, private windowService: WindowService) { }
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -29,23 +33,59 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit() {
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.viewportWidth = this.windowService.nativeWindow.innerWidth;
+    this.viewportHeight = this.windowService.nativeWindow.innerHeight;
+
+    this.svgs = [];
     this.generateSvgPositions();
 
+  }
+
+
+  ngOnInit() {
     this.routerSub = this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event)  => {
       const navigationEnd  = event as NavigationEnd;
       this.showHeader = navigationEnd.url !== '/'
     });
+
+    this.viewportWidth = this.windowService.nativeWindow.innerWidth;
+    this.viewportHeight = this.windowService.nativeWindow.innerHeight;
+
+    this.generateSvgPositions();
   }
 
   generateSvgPositions() {
-    const numberOfSvgs = 57;
+    const gap = 180;
+    const offset = 50;
 
-    for (let i = 0; i < numberOfSvgs; i++) {
-      const top = Math.random() * 100 + '%';
-      const left = Math.random() * 100 + '%';
-      this.svgs.push({top, left});
-      this.svgTransforms.push('');
+    let columns = 0;
+    let rows = 0;
+
+    if (this.viewportWidth > this.viewportHeight) {
+      columns = Math.ceil(this.viewportWidth / gap);
+      rows = Math.ceil(this.viewportHeight / gap * 2);
+    } else {
+      columns = Math.ceil(this.viewportWidth / gap * 2);
+      rows = Math.ceil(this.viewportHeight / gap);
+    }
+
+
+    for (let i = 0; i < rows; i++) {
+      let top = '';
+      for (let j = 0; j < columns; j++) {
+        let left = '';
+        if (j % 2 === 0) {
+          top = i * gap/this.viewportWidth * 100 + '%';
+          left = j * gap/this.viewportWidth * 100 + '%';
+        } else {
+          top = i * (gap + offset)/this.viewportWidth * 100 + '%';
+          left = j * gap/this.viewportWidth * 100 + '%';
+        }
+        this.svgs.push({top, left});
+        this.svgTransforms.push('');
+      }
     }
   }
 

@@ -5,7 +5,7 @@
 .title {
   display: inline-block;
   position: relative;
-  background: linear-gradient(45deg, #FFFFFF 25%, #AE2012ce 25%, #AE2012ce 50%, #FFFFFF 50%, #FFFFFF 75%, #AE2012ce 75%);
+  background: linear-gradient(45deg, #FFFFFF 25%, #AE2012ab 25%, #AE2012ab 50%, #FFFFFF 50%, #FFFFFF 75%, #AE2012ab 75%);
   background-size: 40px 40px;
   width: 100%;
   padding: 1rem 5rem;
@@ -23,7 +23,7 @@
 }
 
 .welcome-text {
-  padding: 1rem 0;
+  padding: 1rem 0.5rem;
   background-color: white;
 }
 
