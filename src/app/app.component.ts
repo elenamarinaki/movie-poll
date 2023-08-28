@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     const scrolled = window.scrollY;
-    const parallaxFactor = 0.5;  // Adjust as needed: < 1 for slower, > 1 for faster
+    const parallaxFactor = 0.5;
     const translation = scrolled * parallaxFactor;
 
     for (let i = 0; i < this.svgTransforms.length; i++) {

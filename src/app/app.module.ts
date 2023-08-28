@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { SvgLoaderComponent } from './svg-loader/svg-loader.component';
 import { ChartDescriptionComponent } from './chart-description/chart-description.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     SvgLoaderComponent,
     ChartDescriptionComponent,
     HomepageComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

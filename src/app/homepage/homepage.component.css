@@ -66,3 +66,8 @@
   background-clip: text;
   color: transparent;
 }
+
+.underline {
+  text-decoration: underline;
+  color: #495057;
+}

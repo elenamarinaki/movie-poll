@@ -3,8 +3,8 @@
   <div class="welcome-text">
     <h3>Hello and welcome 👋</h3>
     <p>This is a fun application with a question form and some statistics.</p>
-    <p>It does not do a lot - rather, you answer a few elementary questions in the <span>Questionnaire</span> section about your movie preferences and then your responses are being added to the sample of people who have done the same.</p>
-    <p>In the <span>Statistics</span> section you can see some charts that present the aggregated data based on the number of submitted questionnaires at the time.</p>
+    <p>It does not do a lot - rather, you answer a few elementary questions in the <a appHighlight routerLink="/questionnaire" class="underline">Questionnaire</a> section about your movie preferences and then your responses are being added to the sample of people who have done the same.</p>
+    <p>In the <a appHighlight routerLink="/records" class="underline">Statistics</a> section you can see some charts that present the aggregated data based on the number of submitted questionnaires at the time.</p>
     <h3 class="why">Why? 😳</h3>
     <p>A couple of months ago I started a new job and had to learn <span class="gradient-text">Angular</span> among other things.</p>
     <p>Being used in <span class="gradient-text">React</span> for quite some time, I was dreading the transition.</p>
@@ -13,7 +13,7 @@
     <p>I use <span class="gradient-text">DynamoDB</span> to store the questionnaire records and <span class="gradient-text">Lambda</span> with <span class="gradient-text">API Gateway</span> for creating the endpoints that I use in the frontend to communicate with my database.</p>
   </div>
   <div class="d-flex justify-content-around align-items-baseline gap-4 nav-btn-container">
-    <a routerLink="/questionnaire" class="btn navigation-btn" routerLinkActive="active-link">Questionnaire</a>
-    <a routerLink="/records" class="btn navigation-btn" routerLinkActive="active-link">Statistics</a>
+    <a routerLink="/questionnaire" class="btn navigation-btn">Questionnaire</a>
+    <a routerLink="/records" class="btn navigation-btn">Statistics</a>
   </div>
 </div>
