@@ -12,10 +12,19 @@
   /*border-bottom: 2px solid #495057;*/
   border-radius: 10px;
 
-  width: 500px;
+  width: 460px;
+
+  @media (min-width: 768px) {
+    width: 550px;
+  }
+
   @media (min-width: 1200px) {
     width: 700px;
   }
+
+
+
+
 }
 
 .highcharts-container {

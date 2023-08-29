@@ -1,98 +1,62 @@
-<form [formGroup]="movieForm" (ngSubmit)="postRecord()" class="bg-white mt-4 rounded">
-  <!-- <div>
-    <label for="genre">What is your favourite movie genre?</label>
-    <select id="genre" formControlName="genre">
-      <option
-        *ngFor="let genre of genres; index as i"
-        [value]="genre"
-        [disabled]="i === 0"
-      >
-        {{ genre }}
-      </option>
-    </select>
-  </div> -->
-
-  <app-dropdown
-    labelText="What is your favourite movie genre?"
-    [options]="genres"
-    id="genre"
-    [group]="movieForm"
-  ></app-dropdown>
-
-  <app-dropdown
-    labelText="How often do you watch movies in general?"
-    [options]="frequency"
-    id="frequency"
-    [group]="movieForm"
-  ></app-dropdown>
-
-  <app-dropdown
-    labelText="Which part of the year do you find yourself watching more movies?"
-    [options]="seasons"
-    id="season"
-    [group]="movieForm"
-  ></app-dropdown>
-
-  <!-- <div>
-    <label for="place">Where do you prefer watching movies more?</label>
-    <div *ngFor="let place of places">
-      <input type="radio" [value]="place" formControlName="place" />{{ place }}
-    </div>
-  </div> -->
-
-  <app-radio
-    labelText="Where do you prefer watching movies more?"
-    [options]="places"
-    id="place"
-    [group]="movieForm"
-  ></app-radio>
-
-  <div class="d-flex flex-column align-items-start gap-2">
-    <label for="favouriteMovie">Care to share your favourite movie?</label>
-    <input id="favouriteMovie" formControlName="favouriteMovie" />
+<div class="container">
+  <div class="bg-white">
+    <app-chart-description borderPosition="left" backgroundColour="#00121911" descriptionText="Please provide an answer for all  the following questions and press the 'Submit' button for your record to be counted in the rest of the sample."></app-chart-description>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="!movieForm.valid">Submit</button>
-</form>
+  <form [formGroup]="movieForm" (ngSubmit)="postRecord()" class="bg-white mt-4 rounded">
+    <!-- <div>
+      <label for="genre">What is your favourite movie genre?</label>
+      <select id="genre" formControlName="genre">
+        <option
+          *ngFor="let genre of genres; index as i"
+          [value]="genre"
+          [disabled]="i === 0"
+        >
+          {{ genre }}
+        </option>
+      </select>
+    </div> -->
 
-<p class="lorem">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec odio nisl, molestie ac molestie eget, auctor vitae purus. Nunc eleifend a urna vel ultricies. Ut a libero convallis, maximus metus nec, mattis nunc. Nulla facilisi. Donec vitae lacinia nunc. Fusce quis laoreet neque, id sodales velit. Sed commodo ultrices porta. Quisque congue venenatis sapien, in gravida metus hendrerit at. In sit amet enim justo. Fusce suscipit sapien a molestie elementum. Fusce at metus odio. Maecenas porta purus vel erat eleifend, et malesuada tortor mattis. In vitae leo a mauris euismod suscipit. Praesent quis odio vitae enim sagittis dictum ut vitae dui.
+    <app-dropdown
+      labelText="What is your favourite movie genre?"
+      [options]="genres"
+      id="genre"
+      [group]="movieForm"
+    ></app-dropdown>
 
-  Morbi est dolor, luctus id malesuada a, tincidunt non metus. Nunc nec facilisis tortor. Etiam sit amet mauris pharetra, aliquam dui in, pharetra metus. Cras dapibus feugiat dictum. Quisque finibus diam nec nibh rutrum molestie. Suspendisse sodales eu velit ac consectetur. In sed nulla ac ex facilisis tincidunt vitae id nisi. Sed vehicula fringilla est ac convallis. Aenean gravida nisl nulla, non suscipit leo ornare vehicula. Donec in tempor lectus. Duis venenatis eros et dolor iaculis, quis hendrerit purus ultricies. Etiam in sollicitudin orci. Nullam tempus quis eros efficitur placerat. Vestibulum aliquet condimentum quam, vel finibus tortor mattis vitae.
+    <app-dropdown
+      labelText="How often do you watch movies in general?"
+      [options]="frequency"
+      id="frequency"
+      [group]="movieForm"
+    ></app-dropdown>
 
-  Nullam aliquam lobortis dui, id egestas odio fringilla eget. Aenean felis nulla, aliquet non bibendum in, euismod id felis. Duis lacinia sagittis mattis. Maecenas at placerat lacus. Cras sit amet massa nec lorem tincidunt bibendum. Mauris quis quam vitae libero sollicitudin consectetur at ac lacus. Nulla lacinia vestibulum neque, eget vestibulum ligula dignissim eget. Aenean tortor lectus, scelerisque sed varius eu, commodo sit amet ante. Vestibulum tempus mi eros, vel dictum eros gravida ac. Nulla ornare viverra est at luctus. Aenean molestie est sed efficitur auctor. Nam sem dui, imperdiet sit amet aliquet id, efficitur ut massa. Suspendisse venenatis imperdiet leo, id aliquet ipsum egestas non.
+    <app-dropdown
+      labelText="Which part of the year do you find yourself watching more movies?"
+      [options]="seasons"
+      id="season"
+      [group]="movieForm"
+    ></app-dropdown>
 
-  In malesuada nibh dui, eu sollicitudin sem rutrum id. In hac habitasse platea dictumst. Integer blandit eros at eros mollis, at luctus tortor rhoncus. Aenean sollicitudin nibh risus, sed varius velit vestibulum vitae. Pellentesque posuere convallis lectus ornare rhoncus. Fusce in ultrices nisl. Mauris pellentesque, tortor ornare volutpat convallis, metus purus euismod risus, non dignissim erat justo non est. Donec ac neque ultrices, vulputate dui sit amet, pretium ipsum.
+    <!-- <div>
+      <label for="place">Where do you prefer watching movies more?</label>
+      <div *ngFor="let place of places">
+        <input type="radio" [value]="place" formControlName="place" />{{ place }}
+      </div>
+    </div> -->
 
-  Donec sit amet scelerisque odio. Nulla ultricies augue ligula. In vel varius purus, quis lacinia risus. Proin vel tortor in eros ultrices ullamcorper sit amet aliquet arcu. In non tristique erat, vitae viverra est. Sed porta purus semper purus efficitur molestie. Curabitur eros mi, lacinia in vestibulum sed, sollicitudin eu arcu. Sed venenatis ornare magna sed lobortis. Nullam porta, libero at venenatis finibus, orci lorem faucibus ex, eu venenatis velit eros et leo. Sed hendrerit malesuada iaculis. Phasellus augue justo, aliquam sit amet commodo et, mollis at mauris.
+    <app-radio
+      labelText="Where do you prefer watching movies more?"
+      [options]="places"
+      id="place"
+      [group]="movieForm"
+    ></app-radio>
 
-  Aenean sed elementum quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur rhoncus diam a leo lacinia consectetur. Vestibulum condimentum ultrices aliquet. Nulla vel ultricies velit. Maecenas gravida, sem ac ullamcorper dictum, elit turpis semper orci, at convallis neque eros sit amet nibh. Nam commodo vitae sapien nec feugiat. Aenean mollis sem tortor, vel efficitur mauris pharetra sed. Fusce vulputate odio arcu, in vulputate purus blandit vel. Nullam volutpat bibendum leo, ac tincidunt sapien blandit non. Praesent posuere metus sit amet dapibus sodales. Aliquam bibendum tortor lorem, non sodales orci viverra a. Cras non maximus nibh, in facilisis turpis. Sed posuere tellus eget congue malesuada. Nam lacus arcu, pellentesque a dapibus ac, molestie et est. Integer sollicitudin, sapien sed scelerisque pellentesque, libero leo mollis est, a auctor nisi nibh quis mi.
+    <div class="d-flex flex-column align-items-start gap-2">
+      <label for="favouriteMovie">Care to share your favourite movie?</label>
+      <input id="favouriteMovie" formControlName="favouriteMovie" />
+    </div>
 
-  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur non dui vel nibh fringilla condimentum. Suspendisse consequat scelerisque ante, ac accumsan ipsum elementum at. Integer tempus velit sed vestibulum ultricies. Nunc ut orci ac lorem faucibus feugiat. Integer consectetur lectus ut porttitor lobortis. Aenean ligula diam, cursus eget mattis ut, fermentum ut diam. Morbi tempor elementum arcu, vitae aliquam ipsum tempus ut. Sed venenatis, nulla vel aliquet congue, risus nisl sagittis ligula, vitae efficitur odio nunc eu neque. Aliquam venenatis sollicitudin augue eu consequat. Nullam id sapien magna. Phasellus viverra a neque non blandit. Nulla facilisi. Suspendisse potenti. Nam varius turpis quis massa venenatis gravida. Proin facilisis odio eget orci posuere, ut vehicula dolor semper.
-
-  Curabitur porta, metus et tempus mattis, lectus tortor sollicitudin velit, sit amet tempor metus lacus vitae velit. Duis euismod egestas augue id efficitur. Donec egestas elementum dolor et vehicula. Vestibulum at dui odio. In eu mi tortor. Mauris imperdiet suscipit eros. Duis scelerisque sed est at viverra. Integer tortor enim, hendrerit rutrum ligula quis, dapibus lacinia nulla. Proin a sapien nec neque tincidunt luctus id ut nunc. Sed sed sodales lectus, non egestas ex. Aliquam quis consectetur justo, a molestie diam. In commodo justo ligula, sit amet bibendum purus elementum eu. Praesent quis risus in orci tincidunt feugiat id et sem.
-
-  Aliquam mollis pellentesque eros ut sagittis. Nam vestibulum cursus risus, ac mollis metus fringilla non. In pretium mi id felis facilisis, non euismod augue viverra. Sed suscipit sodales lacus ut viverra. Etiam semper, felis eget commodo lacinia, diam magna elementum eros, non consequat magna dolor quis lectus. Donec feugiat elementum dui. Duis viverra nibh justo. Donec tempor magna eget arcu pharetra tincidunt. Donec id vehicula turpis. Nullam eleifend sapien vitae nulla tincidunt, quis congue velit mollis. Pellentesque velit sem, blandit quis ipsum at, semper rutrum orci.
-
-  Nullam sodales vulputate gravida. Cras congue, turpis in commodo eleifend, odio augue egestas sem, a luctus lacus nunc at justo. Aliquam metus ante, ultricies sed ultrices in, rhoncus at mauris. Quisque ipsum enim, aliquam sed libero in, commodo dignissim diam. Mauris risus diam, lacinia at semper tristique, bibendum et erat. In mollis dictum turpis vel scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse luctus iaculis justo. Sed quis justo lacus.
-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec odio nisl, molestie ac molestie eget, auctor vitae purus. Nunc eleifend a urna vel ultricies. Ut a libero convallis, maximus metus nec, mattis nunc. Nulla facilisi. Donec vitae lacinia nunc. Fusce quis laoreet neque, id sodales velit. Sed commodo ultrices porta. Quisque congue venenatis sapien, in gravida metus hendrerit at. In sit amet enim justo. Fusce suscipit sapien a molestie elementum. Fusce at metus odio. Maecenas porta purus vel erat eleifend, et malesuada tortor mattis. In vitae leo a mauris euismod suscipit. Praesent quis odio vitae enim sagittis dictum ut vitae dui.
-
-  Morbi est dolor, luctus id malesuada a, tincidunt non metus. Nunc nec facilisis tortor. Etiam sit amet mauris pharetra, aliquam dui in, pharetra metus. Cras dapibus feugiat dictum. Quisque finibus diam nec nibh rutrum molestie. Suspendisse sodales eu velit ac consectetur. In sed nulla ac ex facilisis tincidunt vitae id nisi. Sed vehicula fringilla est ac convallis. Aenean gravida nisl nulla, non suscipit leo ornare vehicula. Donec in tempor lectus. Duis venenatis eros et dolor iaculis, quis hendrerit purus ultricies. Etiam in sollicitudin orci. Nullam tempus quis eros efficitur placerat. Vestibulum aliquet condimentum quam, vel finibus tortor mattis vitae.
-
-  Nullam aliquam lobortis dui, id egestas odio fringilla eget. Aenean felis nulla, aliquet non bibendum in, euismod id felis. Duis lacinia sagittis mattis. Maecenas at placerat lacus. Cras sit amet massa nec lorem tincidunt bibendum. Mauris quis quam vitae libero sollicitudin consectetur at ac lacus. Nulla lacinia vestibulum neque, eget vestibulum ligula dignissim eget. Aenean tortor lectus, scelerisque sed varius eu, commodo sit amet ante. Vestibulum tempus mi eros, vel dictum eros gravida ac. Nulla ornare viverra est at luctus. Aenean molestie est sed efficitur auctor. Nam sem dui, imperdiet sit amet aliquet id, efficitur ut massa. Suspendisse venenatis imperdiet leo, id aliquet ipsum egestas non.
-
-  In malesuada nibh dui, eu sollicitudin sem rutrum id. In hac habitasse platea dictumst. Integer blandit eros at eros mollis, at luctus tortor rhoncus. Aenean sollicitudin nibh risus, sed varius velit vestibulum vitae. Pellentesque posuere convallis lectus ornare rhoncus. Fusce in ultrices nisl. Mauris pellentesque, tortor ornare volutpat convallis, metus purus euismod risus, non dignissim erat justo non est. Donec ac neque ultrices, vulputate dui sit amet, pretium ipsum.
-
-  Donec sit amet scelerisque odio. Nulla ultricies augue ligula. In vel varius purus, quis lacinia risus. Proin vel tortor in eros ultrices ullamcorper sit amet aliquet arcu. In non tristique erat, vitae viverra est. Sed porta purus semper purus efficitur molestie. Curabitur eros mi, lacinia in vestibulum sed, sollicitudin eu arcu. Sed venenatis ornare magna sed lobortis. Nullam porta, libero at venenatis finibus, orci lorem faucibus ex, eu venenatis velit eros et leo. Sed hendrerit malesuada iaculis. Phasellus augue justo, aliquam sit amet commodo et, mollis at mauris.
-
-  Aenean sed elementum quam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur rhoncus diam a leo lacinia consectetur. Vestibulum condimentum ultrices aliquet. Nulla vel ultricies velit. Maecenas gravida, sem ac ullamcorper dictum, elit turpis semper orci, at convallis neque eros sit amet nibh. Nam commodo vitae sapien nec feugiat. Aenean mollis sem tortor, vel efficitur mauris pharetra sed. Fusce vulputate odio arcu, in vulputate purus blandit vel. Nullam volutpat bibendum leo, ac tincidunt sapien blandit non. Praesent posuere metus sit amet dapibus sodales. Aliquam bibendum tortor lorem, non sodales orci viverra a. Cras non maximus nibh, in facilisis turpis. Sed posuere tellus eget congue malesuada. Nam lacus arcu, pellentesque a dapibus ac, molestie et est. Integer sollicitudin, sapien sed scelerisque pellentesque, libero leo mollis est, a auctor nisi nibh quis mi.
-
-  Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur non dui vel nibh fringilla condimentum. Suspendisse consequat scelerisque ante, ac accumsan ipsum elementum at. Integer tempus velit sed vestibulum ultricies. Nunc ut orci ac lorem faucibus feugiat. Integer consectetur lectus ut porttitor lobortis. Aenean ligula diam, cursus eget mattis ut, fermentum ut diam. Morbi tempor elementum arcu, vitae aliquam ipsum tempus ut. Sed venenatis, nulla vel aliquet congue, risus nisl sagittis ligula, vitae efficitur odio nunc eu neque. Aliquam venenatis sollicitudin augue eu consequat. Nullam id sapien magna. Phasellus viverra a neque non blandit. Nulla facilisi. Suspendisse potenti. Nam varius turpis quis massa venenatis gravida. Proin facilisis odio eget orci posuere, ut vehicula dolor semper.
-
-  Curabitur porta, metus et tempus mattis, lectus tortor sollicitudin velit, sit amet tempor metus lacus vitae velit. Duis euismod egestas augue id efficitur. Donec egestas elementum dolor et vehicula. Vestibulum at dui odio. In eu mi tortor. Mauris imperdiet suscipit eros. Duis scelerisque sed est at viverra. Integer tortor enim, hendrerit rutrum ligula quis, dapibus lacinia nulla. Proin a sapien nec neque tincidunt luctus id ut nunc. Sed sed sodales lectus, non egestas ex. Aliquam quis consectetur justo, a molestie diam. In commodo justo ligula, sit amet bibendum purus elementum eu. Praesent quis risus in orci tincidunt feugiat id et sem.
-
-  Aliquam mollis pellentesque eros ut sagittis. Nam vestibulum cursus risus, ac mollis metus fringilla non. In pretium mi id felis facilisis, non euismod augue viverra. Sed suscipit sodales lacus ut viverra. Etiam semper, felis eget commodo lacinia, diam magna elementum eros, non consequat magna dolor quis lectus. Donec feugiat elementum dui. Duis viverra nibh justo. Donec tempor magna eget arcu pharetra tincidunt. Donec id vehicula turpis. Nullam eleifend sapien vitae nulla tincidunt, quis congue velit mollis. Pellentesque velit sem, blandit quis ipsum at, semper rutrum orci.
-
-  Nullam sodales vulputate gravida. Cras congue, turpis in commodo eleifend, odio augue egestas sem, a luctus lacus nunc at justo. Aliquam metus ante, ultricies sed ultrices in, rhoncus at mauris. Quisque ipsum enim, aliquam sed libero in, commodo dignissim diam. Mauris risus diam, lacinia at semper tristique, bibendum et erat. In mollis dictum turpis vel scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse luctus iaculis justo. Sed quis justo lacus.
-</p>
+    <button type="submit" class="btn btn-primary" [disabled]="!movieForm.valid">Submit</button>
+  </form>
+</div>
