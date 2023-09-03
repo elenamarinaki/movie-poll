@@ -15,7 +15,8 @@ export class RecordsService {
   constructor(private http: HttpClient) {}
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+    headers: new HttpHeaders()
+      .set('content-type', 'application/json')
   };
 
   getRecords(): Observable<Record[]> {
