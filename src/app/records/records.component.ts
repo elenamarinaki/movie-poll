@@ -1,4 +1,4 @@
-import {OnInit, Component, OnChanges} from '@angular/core';
+import { OnInit, Component } from '@angular/core';
 import { RecordsService } from "../records.service";
 import * as Highcharts from 'highcharts';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
