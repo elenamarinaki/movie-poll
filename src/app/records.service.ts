@@ -16,8 +16,7 @@ export class RecordsService {
 
   httpOptions = {
     headers: new HttpHeaders()
-      .set('content-type', 'application/json')
-      .set('Authorization', '')
+      .set('content-type', '*')
   };
 
   getRecords(): Observable<Record[]> {
