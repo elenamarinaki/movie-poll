@@ -26,9 +26,9 @@ export class QuestionnaireComponent implements OnInit {
     'crime',
     'thriller'
   ];
-  seasons: string[] = ['Please select', 'spring', 'summer', 'fall', 'winter'];
+  seasons: string[] = ['', 'spring', 'summer', 'fall', 'winter'];
   places: string[] = ['Cinema', 'Home'];
-  frequency: string[] = ['Please select', 'weekly', 'monthly', 'yearly'];
+  frequency: string[] = ['', 'weekly', 'monthly', 'yearly'];
   allRecords: Record[] = [];
 
   constructor(
@@ -45,23 +45,18 @@ export class QuestionnaireComponent implements OnInit {
       frequency: [this.frequency[0], [Validators.required]],
       favouriteMovie: ['', [Validators.required]],
     });
-
-    this.movieForm.valueChanges.subscribe((value) =>
-      console.log('value -- ', value)
-    );
   }
 
   getRecords(): void {
     this.recordsService
       .getRecords()
       .subscribe((data) => {
-        console.log('Records are: ', data)
         this.allRecords = data;
       });
   }
 
   postRecord(): void {
-    if (this.movieForm.valid) {
+    if (this.isFormValid()) {
       const record = { ...this.movieForm.value };
 
       let dateTime = new Date();
@@ -81,5 +76,15 @@ export class QuestionnaireComponent implements OnInit {
   onSubmitComplete(): void {
     this.movieForm.reset();
     this.router.navigate(['/records']);
+  }
+
+  isFormValid(): boolean {
+    let isFormValid = true;
+    Object.entries(this.movieForm.controls).forEach(item => {
+      if (item[0] !== 'place' && !item[1].touched) {
+        isFormValid = false;
+      }
+    })
+    return isFormValid;
   }
 }

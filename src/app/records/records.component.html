@@ -10,16 +10,27 @@
 <p *ngIf="allRecords.length === 0" class="loading-message">Loading data ... 🍿</p>
 
 <div *ngIf="allRecords.length > 0" class="charts">
-  <app-chart-description borderPosition="left" backgroundColour="#0A939611" descriptionText="The next chart shows the popularity of different movie genres, based on the forms collected on this page."></app-chart-description>
+  <app-chart-description borderPosition="left" backgroundColour="#0A939611" descriptionText="Chart 1 shows the popularity of different movie genres, based on the forms collected on this page."></app-chart-description>
 
   <highcharts-chart
     [Highcharts]="Highcharts"
     [options]="genrePopularityChartOptions" style="width: 100%"></highcharts-chart>
   <!--style="width: 100%; height: 400px; display: block;"-->
 
-<app-chart-description borderPosition="right" backgroundColour="#EE9B0011" descriptionText="This chart shows which time of the year people who completed the form watch movies more often."></app-chart-description>
+  <app-chart-description borderPosition="right" backgroundColour="#EE9B0011" descriptionText="Chart 2 shows which time of the year people who completed the form watch movies more often."></app-chart-description>
 
   <highcharts-chart
     [Highcharts]="Highcharts"
     [options]="seasonPopularityChartOptions" style="width: 100%"></highcharts-chart>
+
+  <app-chart-description borderPosition="left" backgroundColour="#0A939611" descriptionText="Chart 3 shows how popular each genre is throughout the year. Select the genre you want to check from the dropdown ⬇️"></app-chart-description>
+
+  <div class="dropdown-container">
+    <app-dropdown labelText="Select a genre" [options]="genres" id="genre" [group]="recordsForm"></app-dropdown>
+  </div>
+  <highcharts-chart [Highcharts]="Highcharts" [options]="genrePopularityPerSeasonChartOptions" style="width: 100%"></highcharts-chart>
+
+  <app-chart-description borderPosition="right" backgroundColour="#EE9B0011" descriptionText="These are some of the favourite movies of the users who submitted this form :)"></app-chart-description>
+
+  <p class="all-movies">{{ allMovies }}</p>
 </div>

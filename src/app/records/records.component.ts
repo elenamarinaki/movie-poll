@@ -1,6 +1,7 @@
-import {OnInit, Component } from '@angular/core';
+import {OnInit, Component, OnChanges} from '@angular/core';
 import { RecordsService } from "../records.service";
 import * as Highcharts from 'highcharts';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 import { Record } from "../record";
 
@@ -15,25 +16,42 @@ export class RecordsComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
   genrePopularityChartOptions:Highcharts.Options;
   seasonPopularityChartOptions:Highcharts.Options;
+  genrePopularityPerSeasonChartOptions:Highcharts.Options;
   genrePalette = ['#006275', '#019B9D', '#F09C00', '#CC6600', '#BC3C00', '#9B2226']
   seasonPalette = ['#94D2BD', '#EE9B00', '#9B2226', '#005F73']
 
+  recordsForm: FormGroup;
+  genres: string[] = [
+    'Please select',
+    'action',
+    'comedy',
+    'drama',
+    'horror',
+    'romance',
+    'sci-fi',
+    'animation',
+    'mystery',
+    'crime',
+    'thriller'
+  ];
 
-  constructor(private recordsService: RecordsService) {}
+  allMovies: string;
+
+  constructor(private recordsService: RecordsService, private fb: FormBuilder) {}
 
   ngOnInit() {
     this.recordsService
       .getRecords()
       .subscribe((data: Record[]) => {
-        console.log('Records are: ', data)
         this.allRecords = data;
+        this.allMovies = data.map(r => r.favouriteMovie).join(', ');
 
         this.genrePopularityChartOptions = {
           chart: {
             type: 'column',
           },
           title: {
-            text: 'Genre popularity',
+            text: 'Chart 1 - Genre popularity in total',
             align: 'left'
           },
           xAxis: {
@@ -62,7 +80,7 @@ export class RecordsComponent implements OnInit {
             type: 'column',
           },
           title: {
-            text: 'Season popularity',
+            text: 'Chart 2 - Season popularity in total',
             align: 'left'
           },
           xAxis: {
@@ -75,7 +93,7 @@ export class RecordsComponent implements OnInit {
           yAxis: {
             className: 'highcharts-color-0',
             title: {
-              text: 'Number of movies'
+              text: 'Number of votes'
             }
           },
           series: [{
@@ -85,7 +103,37 @@ export class RecordsComponent implements OnInit {
             color: '#EE9B00'
           }]
         };
+
+        this.genrePopularityPerSeasonChartOptions = {
+          chart: {
+            type: 'column',
+          },
+          title: {
+            text: 'Chart 3 - Genre popularity per season',
+            align: 'left'
+          },
+          xAxis: {
+            categories: ['spring', 'summer', 'fall', 'winter'],
+            crosshair: true,
+            accessibility: {
+              description: "Seasons"
+            }
+          },
+          yAxis: {
+            className: 'highcharts-color-0',
+            title: {
+              text: 'Number of votes'
+            }
+          },
+          series: [{
+            name: 'Season',
+            data: this.getGenreNumberPerSeason(this.genres[0]).map((m, idx) => ({y: m as number, color: this.seasonPalette[idx]})),
+            type: 'column',
+            color: '#CA6702'
+          }]
+        }
       });
+
 
     Highcharts.setOptions({
       chart: {
@@ -95,7 +143,25 @@ export class RecordsComponent implements OnInit {
       }
     });
 
+    this.recordsForm = this.fb.group({
+      genre: [this.genres[0], [Validators.required]],
+    });
 
+    this.recordsForm.get('genre').valueChanges.subscribe((value) => {
+      this.genrePopularityPerSeasonChartOptions = {
+        ...this.genrePopularityPerSeasonChartOptions,
+        title: {
+          text: `Chart 3 - ${value.charAt(0).toUpperCase() + value.slice(1)} genre popularity per season`,
+          align: 'left'
+        },
+        series: [{
+          name: 'Season',
+          data: this.getGenreNumberPerSeason(value).map((m, idx) => ({y: m as number, color: this.seasonPalette[idx]})),
+          type: 'column',
+          color: '#CA6702'
+        }]
+      }
+    });
   }
 
   getGenreNumber(genre: string): number {
@@ -122,4 +188,12 @@ export class RecordsComponent implements OnInit {
     return [springLength, summerLength, fallLength, winterLength]
   }
 
+  getGenreNumberPerSeason(genre: string): number[] {
+    const springLength = this.allRecords.filter((r: Record) => r.season === 'spring' && r.genre === genre).length;
+    const summerLength = this.allRecords.filter((r: Record) => r.season === 'summer' && r.genre === genre).length;
+    const fallLength = this.allRecords.filter((r: Record) => r.season === 'fall' && r.genre === genre).length;
+    const winterLength = this.allRecords.filter((r: Record) => r.season === 'winter' && r.genre === genre).length;
+
+    return [springLength, summerLength, fallLength, winterLength]
+  }
 }

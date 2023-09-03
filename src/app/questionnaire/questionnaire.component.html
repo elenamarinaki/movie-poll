@@ -57,6 +57,9 @@
       <input id="favouriteMovie" formControlName="favouriteMovie" />
     </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="!movieForm.valid">Submit</button>
+    <button type="submit" class="btn btn-primary submit-btn" [disabled]="!movieForm.valid">Submit</button>
+    <div *ngIf="!movieForm.valid && movieForm.touched" class="error-message">
+      <p>* Please, remember to answer all questions :)</p>
+    </div>
   </form>
 </div>

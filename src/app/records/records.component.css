@@ -1,11 +1,11 @@
 .charts {
-  margin: 0 auto;
+  margin: 2rem auto 5rem auto;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 8rem;
 
   color: #495057;
   background-color: white;
@@ -19,7 +19,7 @@
   }
 
   @media (min-width: 1200px) {
-    width: 700px;
+    width: 800px;
   }
 
 
@@ -45,5 +45,25 @@
 
   @media (min-width: 1200px) {
     font-size: 52px;
+  }
+}
+
+.dropdown-container {
+  background-color: #0A939633;
+  padding: 1rem 4rem;
+
+  border: 1px solid #495057;
+  border-radius: 10px;
+}
+
+app-dropdown, .all-movies {
+  font-size: 18px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 22px;
   }
 }
