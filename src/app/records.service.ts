@@ -17,8 +17,7 @@ export class RecordsService {
   httpOptions = {
     headers: new HttpHeaders()
       .set('content-type', 'application/json')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Headers', '\'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token\'')
+      .set('Authorization', '')
   };
 
   getRecords(): Observable<Record[]> {
