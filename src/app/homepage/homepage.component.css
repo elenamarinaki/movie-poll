@@ -1,5 +1,6 @@
 .container {
   margin-top: -4rem;
+  margin-bottom: 2rem;
   max-width: 480px;
 
   @media (min-width: 768px) {

@@ -1,5 +1,6 @@
 .charts {
   margin: 2rem auto 5rem auto;
+  padding: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -12,7 +13,11 @@
   /*border-bottom: 2px solid #495057;*/
   border-radius: 10px;
 
-  width: 460px;
+  width: 390px;
+
+  @media (min-width: 576px) {
+    width: 460px;
+  }
 
   @media (min-width: 768px) {
     width: 550px;

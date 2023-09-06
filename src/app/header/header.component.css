@@ -14,7 +14,11 @@
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 22px;
+
+  @media (min-width: 576px) {
+    font-size: 28px;
+  }
 
   @media (min-width: 768px) {
     font-size: 32px;
@@ -30,14 +34,19 @@ h1 {
 .navigation-btn {
   background-color: white;
 
-  font-size: 16px;
+  font-size: 14px;
 
-  padding: 0.3rem 0.6rem;
+  padding: 0.2rem 0.4rem;
   border: 2px solid #495057;
   border-bottom: 3px solid #495057;
   border-radius: 10px;
 
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+
+  @media (min-width: 576px) {
+    font-size: 16px;
+    padding: 0.3rem 0.6rem;
+  }
 
   @media (min-width: 768px) {
     font-size: 20px;
